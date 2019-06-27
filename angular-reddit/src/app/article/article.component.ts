@@ -12,7 +12,7 @@ export class ArticleComponent implements OnInit {
   @Input() article: Article;
 
   constructor() {
-    //TODO: voy por la pagina 82
+    
     this.articles = [];
 
     let article1 = new Article();
