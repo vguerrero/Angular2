@@ -21,22 +21,33 @@ export class AppComponent {
 
     let article2 = new Article();
     article2.link = 'http://angular.io';
-    article2.title = 'Angular 2';
-    article2.votes = 10;
+    article2.title = 'Angular Tips';
+    article2.votes = 8;
     this.articles = [article1, article2];
+
+    let git = new Article();
+    git.link = 'https://gitlab.com';
+    git.title = 'Git page';
+    git.votes = 5;
+    this.articles = [article1, article2,git];
   }
 
 
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
     console.log(`Adding article title: ${title.value} and link: ${link.value}`);
-    let newArticle=new Article();
-    newArticle.title=title.value;
-    newArticle.link=link.value;
-    newArticle.votes=0;
+    let newArticle = new Article();
+    newArticle.title = title.value;
+    newArticle.link = link.value;
+    newArticle.votes = 0;
     this.articles.push(newArticle);
     title.value = '';
     link.value = '';
     return false;
   }
+
+  sortedArticles(): Article[] {
+    return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
+  }
+
 }
